@@ -1,16 +1,17 @@
 <?php
-// app/controllers/BiometriaController.php
-require_once __DIR__ . '/../middleware/AuthMiddleware.php';
 
-class BiometriaController {
-    private PDO $pdo;
+declare(strict_types=1);
+use Academia\Repositories\CheckinRepository;
 
-    public function __construct(PDO $pdo) {
-        $this->pdo = $pdo;
+final class BiometriaController
+{
+    public function __construct(private readonly PDO $pdo)
+    {
     }
 
-    public function index(): void {
-        AuthMiddleware::requireAuth();
+    public function index(): void
+    {
+        $students = (new CheckinRepository($this->pdo))->students();
         require __DIR__ . '/../views/biometria/index.php';
     }
 }

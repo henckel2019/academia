@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder do professor</title>
+  <desc id="desc">Retrato abstrato para substituir pela foto do professor Micael Santos.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#303030"/><stop offset=".55" stop-color="#111"/><stop offset="1" stop-color="#070707"/></linearGradient>
+    <linearGradient id="skin" x1="0" x2="1"><stop stop-color="#777"/><stop offset="1" stop-color="#d9d9d9"/></linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <path d="M0 780 800 240v760H0z" fill="#9e1b16" opacity=".17"/>
+  <path d="M70 0h80v1000H70zM640 0h18v1000h-18z" fill="#a7a9ac" opacity=".17"/>
+  <g fill="#090909" stroke="url(#skin)" stroke-width="9" stroke-linejoin="round">
+    <circle cx="405" cy="285" r="105"/>
+    <path d="M238 928c20-220 50-363 165-411 111 48 151 192 174 411z"/>
+    <path d="M245 586c-54 67-94 153-116 269l151-83 57-153zM563 592c64 82 95 151 112 263l-166-88-24-146z"/>
+    <path d="M300 157c56-67 157-75 213-8 15 18 26 42 31 76l-54-34-38 39-92-13-45 53c-20-41-27-76-15-113z" fill="#222"/>
+  </g>
+  <g fill="#d9d9d9" font-family="Arial, sans-serif" letter-spacing="5" text-anchor="middle">
+    <text x="400" y="895" font-size="17" opacity=".55">FOTO DO PROFESSOR</text>
+    <text x="400" y="925" font-size="11" opacity=".38">SUBSTITUA ESTE PLACEHOLDER</text>
+  </g>
+</svg>

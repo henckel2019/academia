@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder da galeria</title>
+  <desc id="desc">Composição abstrata para substituir pelas fotos da academia.</desc>
+  <defs><linearGradient id="bg" x1="0" x2="1"><stop stop-color="#282828"/><stop offset="1" stop-color="#080808"/></linearGradient></defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <g fill="none" stroke="#a7a9ac" opacity=".25" stroke-width="8"><rect x="70" y="70" width="310" height="580"/><rect x="445" y="70" width="310" height="580"/><rect x="820" y="70" width="310" height="580"/></g>
+  <g fill="#9e1b16" opacity=".75"><path d="M70 535 220 350l88 115 72-91v276H70z"/><path d="m445 540 109-132 85 71 116-139v310H445z"/><path d="m820 500 145-193 165 169v174H820z"/></g>
+  <text x="600" y="360" fill="#f2f2f2" opacity=".7" font-size="28" font-family="Arial, sans-serif" text-anchor="middle" letter-spacing="8">GALERIA DA GARAGEM</text>
+  <text x="600" y="402" fill="#d9d9d9" opacity=".4" font-size="14" font-family="Arial, sans-serif" text-anchor="middle" letter-spacing="4">SUBSTITUA ESTE PLACEHOLDER</text>
+</svg>

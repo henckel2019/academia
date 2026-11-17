@@ -1,0 +1,13 @@
+Options -Indexes
+RewriteEngine On
+AddType text/javascript .mjs
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+RewriteRule ^ index.php [L,QSA]
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|png|jpg|jpeg|webp|svg|woff|woff2)$">
+        Header set Cache-Control "public, max-age=604800, immutable"
+    </FilesMatch>
+</IfModule>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 960" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder de treino</title>
+  <desc id="desc">Silhueta abstrata de treino para substituir pela foto da modalidade.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#242424"/><stop offset="1" stop-color="#080808"/></linearGradient>
+    <radialGradient id="spot"><stop stop-color="#c52a20" stop-opacity=".72"/><stop offset="1" stop-color="#9e1b16" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="720" height="960" fill="url(#bg)"/>
+  <circle cx="390" cy="395" r="300" fill="url(#spot)" opacity=".65"/>
+  <g opacity=".18" stroke="#d9d9d9" stroke-width="3"><path d="M0 170h720M0 370h720M0 570h720M0 770h720"/><path d="m40 0 240 960M280 0 520 960M680 0 440 960"/></g>
+  <g fill="#070707" stroke="#d9d9d9" stroke-width="8" stroke-linejoin="round">
+    <circle cx="359" cy="220" r="61"/>
+    <path d="M312 284c-43 44-55 122-39 221l27 216 67-6 8-218 49 215 69-7-46-242c-16-83-25-143-72-179z"/>
+    <path d="M315 350 161 470l-93-16c-31-6-43 38-14 51l111 51c28 12 60 5 82-16l121-113z"/>
+    <path d="m443 363 116 78 92-52c27-16 54 24 28 43l-95 80c-27 23-67 23-97 2l-94-65z"/>
+  </g>
+  <text x="360" y="880" fill="#d9d9d9" opacity=".45" font-size="13" font-family="Arial, sans-serif" text-anchor="middle" letter-spacing="4">IMAGEM DA MODALIDADE</text>
+</svg>

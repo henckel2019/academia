@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder da academia</title>
+  <desc id="desc">Ambiente industrial abstrato para substituir por uma foto da academia.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#272727"/><stop offset="1" stop-color="#080808"/></linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#1d1d1d"/><stop offset="1" stop-color="#050505"/></linearGradient>
+  </defs>
+  <rect width="900" height="1100" fill="url(#bg)"/>
+  <path d="M0 710 900 590v510H0z" fill="url(#floor)"/>
+  <g fill="none" stroke="#a7a9ac" opacity=".3">
+    <path d="M90 0v710M300 0v680M600 0v650M820 0v620" stroke-width="18"/>
+    <path d="M0 180h900M0 360h900M0 540h900" stroke-width="4"/>
+    <path d="M40 1020 450 690l410 240M190 1100l380-330 300 190" stroke-width="5"/>
+  </g>
+  <g stroke="#c52a20" stroke-width="12" opacity=".85"><path d="M0 710 900 590"/><path d="M90 0v710"/></g>
+  <g fill="#d9d9d9" font-family="Arial, sans-serif" letter-spacing="6" text-anchor="middle">
+    <text x="450" y="860" font-size="22" opacity=".7">FOTO DA GARAGEM</text>
+    <text x="450" y="900" font-size="13" opacity=".42">SUBSTITUA ESTE PLACEHOLDER</text>
+  </g>
+</svg>

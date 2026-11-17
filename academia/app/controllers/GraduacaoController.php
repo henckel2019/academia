@@ -1,47 +1,56 @@
 <?php
-// app/controllers/GraduacaoController.php
+
+declare(strict_types=1);
+
 require_once __DIR__ . '/../middleware/AuthMiddleware.php';
 
-class GraduacaoController {
-    private PDO $pdo;
+use Academia\Repositories\GraduationManagementRepository;
+use Academia\Services\GraduationManagementService;
 
-    public function __construct(PDO $pdo) {
-        $this->pdo = $pdo;
+final class GraduacaoController
+{
+    private GraduationManagementRepository $repository;
+    private GraduationManagementService $service;
+
+    public function __construct(PDO $pdo)
+    {
+        $this->repository = new GraduationManagementRepository($pdo);
+        $this->service = new GraduationManagementService($this->repository);
     }
 
-    public function index(): void {
+    public function index(): void
+    {
         AuthMiddleware::requireAuth();
-
-        $sql = "SELECT g.*, a.nome as aluno_nome, m.nome as modalidade_nome
-                FROM graduacoes g
-                JOIN alunos a ON a.id = g.aluno_id
-                JOIN modalidades m ON m.id = g.modalidade_id
-                ORDER BY g.data_graduacao DESC";
-        $lista = $this->pdo->query($sql)->fetchAll();
-
+        $lista = $this->repository->list();
+        $message = flash('success');
+        $error = flash('error');
         require __DIR__ . '/../views/graduacoes/index.php';
     }
 
-    public function create(): void {
+    public function create(): void
+    {
         AuthMiddleware::requireAuth();
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $dados = [
-                'aluno_id' => (int)($_POST['aluno_id'] ?? 0),
-                'modalidade_id' => (int)($_POST['modalidade_id'] ?? 0),
-                'faixa' => trim((string)($_POST['faixa'] ?? '')),
-                'grau' => (int)($_POST['grau'] ?? 0),
-                'data_graduacao' => !empty($_POST['data_graduacao']) ? $_POST['data_graduacao'] : date('Y-m-d'),
-                'professor_responsavel' => trim((string)($_POST['professor_responsavel'] ?? '')),
-                'observacoes' => trim((string)($_POST['observacoes'] ?? '')),
-            ];
-            (new Graduacao($this->pdo))->create($dados);
-            header('Location: /academia/public/graduacoes');
-            exit;
+        $alunos = $this->repository->activeStudents();
+        $modalidades = $this->repository->activeModalities();
+        $professores = $this->repository->activeProfessors();
+
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            $item = [];
+            require __DIR__ . '/../views/graduacoes/form.php';
+            return;
         }
 
-        $alunos = (new Aluno($this->pdo))->all();
-        $modalidades = (new Modalidade($this->pdo))->all();
-
-        require __DIR__ . '/../views/graduacoes/form.php';
+        try {
+            $this->service->create($_POST);
+            flash('success', 'Graduação registrada e cobrança gerada para o aluno.');
+            redirect('/graduacoes');
+        } catch (\InvalidArgumentException $exception) {
+            $item = $_POST;
+            $error = $exception->getMessage();
+            require __DIR__ . '/../views/graduacoes/form.php';
+        } catch (\Throwable $exception) {
+            flash('error', 'Não foi possível registrar a graduação e gerar a cobrança.');
+            redirect('/graduacoes');
+        }
     }
 }
